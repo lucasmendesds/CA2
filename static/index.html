@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Vuln Demo — Comment Wall</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Comment Wall</h1>
+    <div class="banner">
+        Intentionally vulnerable demo. Localhost only. Do not deploy.
+    </div>
+    <div id="auth-status">
+        <span id="who">not signed in</span>
+        <button id="logout-btn" hidden>Sign out</button>
+    </div>
+</header>
+
+<main>
+    <section id="auth-section">
+        <h2>Sign in</h2>
+        <form id="login-form">
+            <label>Username <input name="username" autocomplete="off" required></label>
+            <label>Password <input name="password" type="password" autocomplete="off" required></label>
+            <button type="submit">Sign in</button>
+            <button type="button" id="register-btn">Register</button>
+        </form>
+        <pre id="login-debug" class="debug"></pre>
+    </section>
+
+    <section id="wall-section">
+        <h2>Post a comment</h2>
+        <form id="comment-form">
+            <textarea name="body" rows="3" placeholder="Say something..." required></textarea>
+            <button type="submit">Publish</button>
+        </form>
+
+        <h2>Comments</h2>
+        <form id="search-form">
+            <input name="q" placeholder="search comments..." autocomplete="off">
+            <button type="submit">Search</button>
+            <button type="button" id="clear-search">Clear</button>
+        </form>
+        <pre id="search-debug" class="debug"></pre>
+        <ul id="comments"></ul>
+    </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
